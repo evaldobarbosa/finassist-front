@@ -3,7 +3,7 @@ set -e
 
 ENVIRONMENT=${1:-production}
 
-echo "=== Deploy FinAssistant Frontend - $ENVIRONMENT ==="
+echo "=== Deploy ZapGrana Frontend - $ENVIRONMENT ==="
 
 # Login no GitHub Container Registry
 if [ -f .github_token ]; then
