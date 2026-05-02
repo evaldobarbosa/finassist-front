@@ -34,8 +34,8 @@ docker compose -f docker-compose.github.yml up -d
 echo "Aguardando inicializacao..."
 sleep 5
 
-# Obter IP do container
-CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $CONTAINER_NAME)
+# Obter IP do container da rede proxymng
+CONTAINER_IP=$(docker inspect -f '{{.NetworkSettings.Networks.proxymng.IPAddress}}' $CONTAINER_NAME 2>/dev/null)
 echo "Container IP: $CONTAINER_IP"
 
 # Health check via IP do container
