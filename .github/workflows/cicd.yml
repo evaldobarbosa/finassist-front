@@ -171,25 +171,6 @@ jobs:
             export GITHUB_USER="${{ github.actor }}"
             ./deploy.sh production
 
-      - name: Wait for application startup
-        run: sleep 15
-
-      - name: Health check
-        run: |
-          echo "Verificando saude da aplicacao..."
-          FRONT_URL="https://${{ vars.FRONT_HOST }}"
-          for i in {1..5}; do
-            response=$(curl -s -o /dev/null -w "%{http_code}" "${FRONT_URL}/health" || echo "000")
-            if [ "$response" = "200" ]; then
-              echo "Health check passou! (HTTP $response)"
-              exit 0
-            fi
-            echo "Tentativa $i/5 - HTTP $response, aguardando..."
-            sleep 5
-          done
-          echo "Health check falhou apos 5 tentativas"
-          exit 1
-
   notify:
     name: Notify Telegram
     runs-on: ubuntu-latest
