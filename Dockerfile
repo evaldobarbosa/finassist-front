@@ -22,6 +22,8 @@ RUN npm run build
 # Production stage
 FROM nginx:alpine AS production
 
+RUN apk update && apk upgrade --no-cache
+
 # Copiar configuracao do nginx
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
