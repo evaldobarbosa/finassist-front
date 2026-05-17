@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { CurrencyInput, parseCurrency, formatCurrency } from '@/components/ui/currency-input'
+import { CurrencyInput } from '@/components/ui/currency-input'
 import {
   Select,
   SelectContent,
@@ -46,7 +46,7 @@ const form = ref({
   color: '#006b2c',
   icon: 'wallet',
   parent_id: '',
-  budget_limit: '',
+  budget_limit: 0,
 })
 
 const error = ref('')
@@ -80,7 +80,7 @@ watch([() => props.open, () => props.category], () => {
         color: props.category.color,
         icon: props.category.icon || 'wallet',
         parent_id: props.category.parent_id || '',
-        budget_limit: props.category.budget_limit ? formatCurrency(Number(props.category.budget_limit)) : '',
+        budget_limit: Number(props.category.budget_limit) || 0,
       }
     } else {
       form.value = {
@@ -89,7 +89,7 @@ watch([() => props.open, () => props.category], () => {
         color: '#006b2c',
         icon: 'wallet',
         parent_id: '',
-        budget_limit: '',
+        budget_limit: 0,
       }
     }
     error.value = ''
@@ -108,11 +108,9 @@ function handleSubmit() {
     return
   }
 
-  const budgetLimit = form.value.budget_limit
-    ? parseCurrency(form.value.budget_limit)
-    : undefined
+  const budgetLimit = form.value.budget_limit || undefined
 
-  if (budgetLimit !== undefined && (isNaN(budgetLimit) || budgetLimit < 0)) {
+  if (budgetLimit !== undefined && budgetLimit < 0) {
     error.value = 'Digite um limite valido'
     return
   }

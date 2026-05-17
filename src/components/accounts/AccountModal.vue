@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { CurrencyInput, parseCurrency, formatCurrency } from '@/components/ui/currency-input'
+import { CurrencyInput } from '@/components/ui/currency-input'
 import type { Account } from '@/types'
 
 type AccountType = 'checking' | 'savings' | 'wallet' | 'investment'
@@ -33,7 +33,7 @@ const emit = defineEmits<{
 const form = ref({
   name: '',
   type: 'checking' as AccountType,
-  balance: '',
+  balance: 0,
   color: '#006b2c',
   is_default: false,
   include_in_total: true,
@@ -74,7 +74,7 @@ watch([() => props.open, () => props.account], () => {
       form.value = {
         name: props.account.name,
         type: props.account.type,
-        balance: formatCurrency(Number(props.account.balance)),
+        balance: Number(props.account.balance) || 0,
         color: props.account.color || '#006b2c',
         is_default: props.account.is_default,
         include_in_total: props.account.include_in_total,
@@ -83,7 +83,7 @@ watch([() => props.open, () => props.account], () => {
       form.value = {
         name: '',
         type: 'checking',
-        balance: '0,00',
+        balance: 0,
         color: '#006b2c',
         is_default: false,
         include_in_total: true,
@@ -105,12 +105,10 @@ function handleSubmit() {
     return
   }
 
-  const balance = form.value.balance ? parseCurrency(form.value.balance) : 0
-
   emit('submit', {
     name: form.value.name.trim(),
     type: form.value.type,
-    balance,
+    balance: form.value.balance,
     color: form.value.color,
     is_default: form.value.is_default,
     include_in_total: form.value.include_in_total,

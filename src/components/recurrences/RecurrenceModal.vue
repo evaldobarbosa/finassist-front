@@ -20,7 +20,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { CurrencyInput, parseCurrency, formatCurrency } from '@/components/ui/currency-input'
+import { CurrencyInput } from '@/components/ui/currency-input'
 import {
   Select,
   SelectContent,
@@ -58,7 +58,7 @@ const { data: categories } = useQuery({
 const form = ref({
   description: '',
   type: 'expense' as 'income' | 'expense',
-  amount: '',
+  amount: 0,
   frequency: 'monthly' as RecurrenceFrequency,
   account_id: '',
   category_id: '',
@@ -133,7 +133,7 @@ watch(
         form.value = {
           description: props.recurrence.description,
           type: props.recurrence.type,
-          amount: formatCurrency(Number(props.recurrence.amount)),
+          amount: Number(props.recurrence.amount) || 0,
           frequency: props.recurrence.frequency,
           account_id: props.recurrence.account_id,
           category_id: props.recurrence.category_id || '',
@@ -149,7 +149,7 @@ watch(
         form.value = {
           description: '',
           type: 'expense',
-          amount: '',
+          amount: 0,
           frequency: 'monthly',
           account_id: defaultAccount?.id || '',
           category_id: '',
@@ -179,8 +179,7 @@ function handleSubmit() {
     return
   }
 
-  const amount = form.value.amount ? parseCurrency(form.value.amount) : 0
-  if (!amount || amount <= 0) {
+  if (!form.value.amount || form.value.amount <= 0) {
     error.value = 'Digite um valor valido'
     return
   }
@@ -193,7 +192,7 @@ function handleSubmit() {
   const data: Partial<Recurrence> = {
     description: form.value.description.trim(),
     type: form.value.type,
-    amount,
+    amount: form.value.amount,
     frequency: form.value.frequency,
     account_id: form.value.account_id,
     category_id: form.value.category_id && form.value.category_id !== '_none' ? form.value.category_id : undefined,

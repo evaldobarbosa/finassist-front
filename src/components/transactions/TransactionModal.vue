@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { CurrencyInput, parseCurrency, formatCurrency } from '@/components/ui/currency-input'
+import { CurrencyInput } from '@/components/ui/currency-input'
 import {
   Select,
   SelectContent,
@@ -41,7 +41,7 @@ const emit = defineEmits<{
 
 const form = ref({
   description: '',
-  amount: '',
+  amount: 0,
   type: 'expense' as TransactionType,
   date: new Date().toISOString().split('T')[0],
   account_id: '',
@@ -106,7 +106,7 @@ watch([() => props.open, () => props.transaction, () => props.type], () => {
     if (props.transaction) {
       form.value = {
         description: props.transaction.description,
-        amount: formatCurrency(Number(props.transaction.amount)),
+        amount: Number(props.transaction.amount) || 0,
         type: props.transaction.type,
         date: props.transaction.date.split('T')[0],
         account_id: props.transaction.account_id,
@@ -120,7 +120,7 @@ watch([() => props.open, () => props.transaction, () => props.type], () => {
     } else {
       form.value = {
         description: '',
-        amount: '',
+        amount: 0,
         type: props.type || 'expense',
         date: new Date().toISOString().split('T')[0],
         account_id: props.accounts.find(a => a.is_default)?.id || props.accounts[0]?.id || '',
@@ -148,8 +148,7 @@ function handleSubmit() {
     return
   }
 
-  const amount = form.value.amount ? parseCurrency(form.value.amount) : 0
-  if (isNaN(amount) || amount <= 0) {
+  if (!form.value.amount || form.value.amount <= 0) {
     error.value = 'Digite um valor valido'
     return
   }
@@ -182,7 +181,7 @@ function handleSubmit() {
 
   emit('submit', {
     description: form.value.description.trim(),
-    amount,
+    amount: form.value.amount,
     type: form.value.type,
     date: form.value.date,
     account_id: form.value.account_id,

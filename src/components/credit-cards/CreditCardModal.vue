@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { CurrencyInput, parseCurrency, formatCurrency } from '@/components/ui/currency-input'
+import { CurrencyInput } from '@/components/ui/currency-input'
 import {
   Select,
   SelectContent,
@@ -40,7 +40,7 @@ const form = ref({
   name: '',
   brand: '',
   last_four_digits: '',
-  limit: '',
+  limit: 0,
   closing_day: '',
   due_day: '',
   color: '#1a1a2e',
@@ -73,7 +73,7 @@ watch([() => props.open, () => props.card], () => {
         name: props.card.name,
         brand: props.card.brand || '',
         last_four_digits: props.card.last_four_digits || '',
-        limit: props.card.limit ? formatCurrency(props.card.limit) : '',
+        limit: props.card.limit || 0,
         closing_day: props.card.closing_day?.toString() || '',
         due_day: props.card.due_day?.toString() || '',
         color: props.card.color || '#1a1a2e',
@@ -83,7 +83,7 @@ watch([() => props.open, () => props.card], () => {
         name: '',
         brand: '',
         last_four_digits: '',
-        limit: '',
+        limit: 0,
         closing_day: '',
         due_day: '',
         color: '#1a1a2e',
@@ -130,8 +130,8 @@ function handleSubmit() {
     return
   }
 
-  const limit = form.value.limit ? parseCurrency(form.value.limit) : undefined
-  if (limit !== undefined && (isNaN(limit) || limit < 0)) {
+  const limit = form.value.limit || undefined
+  if (limit !== undefined && limit < 0) {
     error.value = 'Digite um limite valido'
     return
   }

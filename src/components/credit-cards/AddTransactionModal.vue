@@ -5,7 +5,7 @@ import { Loader2, Calendar } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { CurrencyInput, parseCurrency } from '@/components/ui/currency-input'
+import { CurrencyInput } from '@/components/ui/currency-input'
 import {
   Dialog,
   DialogContent,
@@ -35,7 +35,7 @@ const emit = defineEmits<{
 }>()
 
 const form = ref({
-  amount: '',
+  amount: 0,
   description: '',
   date: new Date().toISOString().split('T')[0],
   category_id: '',
@@ -53,13 +53,12 @@ const expenseCategories = computed(() =>
 )
 
 const isFormValid = computed(() => {
-  const amount = parseCurrency(form.value.amount)
-  return amount > 0 && form.value.description.trim() !== ''
+  return form.value.amount > 0 && form.value.description.trim() !== ''
 })
 
 function resetForm() {
   form.value = {
-    amount: '',
+    amount: 0,
     description: '',
     date: new Date().toISOString().split('T')[0],
     category_id: '',
@@ -75,7 +74,7 @@ function handleSubmit() {
     : undefined
 
   emit('submit', {
-    amount: parseCurrency(form.value.amount),
+    amount: form.value.amount,
     description: form.value.description.trim(),
     date: form.value.date || undefined,
     category_id: categoryId,
