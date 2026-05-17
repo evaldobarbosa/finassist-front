@@ -36,7 +36,7 @@ const toggleFaq = (index: number) => {
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
       <div class="flex justify-between items-center h-20 px-4 md:px-6 max-w-[1280px] mx-auto">
-        <img src="/images/logo.png" alt="Zapgrana Logo" class="h-auto w-[140px] object-contain">
+        <img src="/images/logo-icon.png" alt="Zapgrana Logo" class="object-contain">
 
         <nav class="hidden md:flex gap-8">
           <a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#beneficios">Beneficios</a>
@@ -384,7 +384,7 @@ const toggleFaq = (index: number) => {
     <footer class="w-full py-24 mt-auto bg-surface-container-highest border-t border-outline-variant">
       <div class="max-w-[1280px] mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="md:col-span-1">
-          <img src="/images/logo.png" alt="Zapgrana Logo" class="h-auto w-[160px] object-contain">
+          <img src="/images/logo-icon.png" alt="Zapgrana Logo" class="object-contain">
           <p class="mt-4 text-on-surface-variant">Gestao financeira inteligente</p>
         </div>
 
