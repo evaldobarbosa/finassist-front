@@ -2,6 +2,14 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
+import { api, ApiError } from '@/lib/api'
+import type { User } from '@/types'
+
+interface LoginResponse {
+  message: string
+  user: User
+  token: string
+}
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -26,20 +34,19 @@ const handleSubmit = async () => {
   error.value = ''
 
   try {
-    // TODO: Implement actual login API call
-    // Simulating login for now
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
-    authStore.setToken('fake-token-123')
-    authStore.setUser({
-      id: '1',
-      name: 'Usuário Teste',
-      email: email.value
+    const response = await api.post<LoginResponse>('/auth/login', {
+      email: email.value,
+      password: password.value
     })
 
-    router.push('/')
+    authStore.setAuth(response.token, response.user)
+    router.push('/app')
   } catch (e) {
-    error.value = 'Credenciais inválidas'
+    if (e instanceof ApiError) {
+      error.value = e.message || 'Credenciais inválidas'
+    } else {
+      error.value = 'Erro ao fazer login. Tente novamente.'
+    }
   } finally {
     isLoading.value = false
   }

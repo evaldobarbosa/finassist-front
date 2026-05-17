@@ -10,18 +10,18 @@ const mobileMenuOpen = ref(false)
 
 const faqs = [
   {
-    question: 'O Zapgrana e seguro? Meus dados do WhatsApp sao privados?',
-    answer: 'Sim! Utilizamos criptografia de ponta a ponta e seguimos todas as normas da LGPD. Seus dados financeiros nunca sao compartilhados e voce pode excluir seu historico a qualquer momento.',
+    question: 'O Zapgrana é seguro? Meus dados do WhatsApp são privados?',
+    answer: 'Sim! Utilizamos criptografia de ponta a ponta e seguimos todas as normas da LGPD. Seus dados financeiros nunca são compartilhados e você pode excluir seu histórico a qualquer momento.',
     open: true
   },
   {
     question: 'Preciso baixar algum aplicativo?',
-    answer: 'Nao. O Zapgrana funciona 100% dentro do WhatsApp. Basta adicionar o nosso numero e comecar a conversar com o Doutor Equilibrio.',
+    answer: 'Não. O Zapgrana funciona 100% dentro do WhatsApp. Basta adicionar o nosso número e começar a conversar com o Doutor Equilíbrio.',
     open: false
   },
   {
     question: 'Como funciona o cancelamento do Plano Pro?',
-    answer: 'Voce pode cancelar a qualquer momento sem taxas ocultas. Basta enviar a palavra "CANCELAR" para o bot ou gerenciar sua assinatura pelo painel do usuario.',
+    answer: 'Você pode cancelar a qualquer momento sem taxas ocultas. Basta enviar a palavra "CANCELAR" para o bot ou gerenciar sua assinatura pelo painel do usuário.',
     open: false
   }
 ]
@@ -36,12 +36,12 @@ const toggleFaq = (index: number) => {
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
       <div class="flex justify-between items-center h-20 px-4 md:px-6 max-w-[1280px] mx-auto">
-        <img src="/images/logo-icon.png" alt="Zapgrana Logo" class="object-contain">
+        <img src="/images/logo-icon-1.png" alt="Zapgrana Logo" class="object-contain">
 
         <nav class="hidden md:flex gap-8">
-          <a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#beneficios">Beneficios</a>
+          <a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#beneficios">Benefícios</a>
           <a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#como-funciona">Como Funciona</a>
-          <a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#precos">Precos</a>
+          <a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#precos">Preços</a>
         </nav>
 
         <button
@@ -59,9 +59,9 @@ const toggleFaq = (index: number) => {
       <!-- Mobile menu -->
       <div v-if="mobileMenuOpen" class="md:hidden px-4 pb-4 border-t border-outline-variant/30">
         <nav class="flex flex-col gap-4 py-4">
-          <a class="text-on-surface-variant" href="#beneficios" @click="mobileMenuOpen = false">Beneficios</a>
+          <a class="text-on-surface-variant" href="#beneficios" @click="mobileMenuOpen = false">Benefícios</a>
           <a class="text-on-surface-variant" href="#como-funciona" @click="mobileMenuOpen = false">Como Funciona</a>
-          <a class="text-on-surface-variant" href="#precos" @click="mobileMenuOpen = false">Precos</a>
+          <a class="text-on-surface-variant" href="#precos" @click="mobileMenuOpen = false">Preços</a>
         </nav>
         <button @click="goToLogin" class="w-full bg-zapgrana-green text-on-primary py-2.5 rounded-full font-bold">
           Entrar
@@ -78,14 +78,14 @@ const toggleFaq = (index: number) => {
               Seu dinheiro sob controle. No WhatsApp. <span class="text-zapgrana-green">Com IA.</span>
             </h1>
             <p class="text-lg text-on-surface-variant mb-10 max-w-xl leading-relaxed">
-              A gestao financeira mais simples do mundo. Sem apps complexos, sem planilhas chatas. Apenas mande um Zap e deixe o Doutor Equilibrio cuidar de tudo.
+              A gestão financeira mais simples do mundo. Sem apps complexos, sem planilhas chatas. Apenas mande um Zap e deixe o Doutor Equilíbrio cuidar de tudo.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <button
                 @click="goToSignup"
                 class="bg-zapgrana-green text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2"
               >
-                Comecar gratis
+                Começar grátis
                 <span class="material-symbols-outlined">arrow_forward</span>
               </button>
               <div class="flex items-center gap-2 px-4 text-on-surface-variant">
@@ -98,19 +98,10 @@ const toggleFaq = (index: number) => {
           <div class="md:w-1/2 relative">
             <div class="relative z-10 rounded-[40px] overflow-hidden border-[8px] border-on-surface-variant shadow-2xl bg-white max-w-[340px] mx-auto">
               <img
-                alt="Doutor Equilibrio"
+                alt="Zapgrana App Screenshot"
                 class="w-full h-auto"
-                src="/images/dr-equilibrio.jpg"
+                src="/images/screenshot-iphone14.png"
               >
-              <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur p-4 rounded-2xl shadow-lg border border-outline-variant/30">
-                <div class="flex items-center gap-3 mb-2">
-                  <div class="w-8 h-8 rounded-full bg-zapgrana-green flex items-center justify-center text-white">
-                    <span class="material-symbols-outlined text-sm">smart_toy</span>
-                  </div>
-                  <span class="font-bold text-sm">Doutor Equilibrio</span>
-                </div>
-                <p class="text-xs text-on-surface-variant">"Gasto de R$ 45,00 em 'Almoco' registrado. Voce ainda tem R$ 320,00 para lazer este mes."</p>
-              </div>
             </div>
             <!-- Decorative element -->
             <div class="absolute -top-10 -right-10 w-64 h-64 bg-growth-light/30 rounded-full blur-3xl -z-0"></div>
@@ -119,11 +110,11 @@ const toggleFaq = (index: number) => {
       </section>
 
       <!-- Social Proof Bar -->
-      <section class="bg-white py-12 border-y border-outline-variant/20">
+      <section v-show="false" class="bg-white py-12 border-y border-outline-variant/20">
         <div class="max-w-[1280px] mx-auto px-4 md:px-6 flex flex-wrap justify-center md:justify-around gap-8 text-center">
           <div>
             <div class="text-[32px] font-bold text-zapgrana-green">+38.000</div>
-            <div class="text-sm font-medium text-on-surface-variant">Usuarios Ativos</div>
+            <div class="text-sm font-medium text-on-surface-variant">Usuários Ativos</div>
           </div>
           <div>
             <div class="text-[32px] font-bold text-zapgrana-green">R$ 15M+</div>
@@ -138,7 +129,7 @@ const toggleFaq = (index: number) => {
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
             </div>
-            <div class="text-sm font-medium text-on-surface-variant">Avaliacao na App Store</div>
+            <div class="text-sm font-medium text-on-surface-variant">Avaliação na App Store</div>
           </div>
         </div>
       </section>
@@ -147,7 +138,7 @@ const toggleFaq = (index: number) => {
       <section class="py-24 px-4 md:px-6 max-w-[1280px] mx-auto" id="como-funciona">
         <div class="text-center mb-16">
           <span class="bg-zapgrana-green/10 text-zapgrana-green px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wider">Passo a passo</span>
-          <h2 class="text-[40px] font-bold mt-4">Simples como enviar um audio</h2>
+          <h2 class="text-[40px] font-bold mt-4">Simples como enviar um áudio</h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-12">
@@ -156,7 +147,7 @@ const toggleFaq = (index: number) => {
               <span class="material-symbols-outlined text-4xl">add_comment</span>
             </div>
             <h3 class="text-2xl font-semibold mb-3">1. Mande uma mensagem</h3>
-            <p class="text-on-surface-variant">Gastou no cafe? Mandou audio, foto do comprovante ou texto: "Cafe R$ 10".</p>
+            <p class="text-on-surface-variant">Gastou no café? Mandou áudio, foto do comprovante ou texto: "Café R$ 10".</p>
           </div>
 
           <div class="flex flex-col items-center text-center">
@@ -164,7 +155,7 @@ const toggleFaq = (index: number) => {
               <span class="material-symbols-outlined text-4xl">auto_awesome</span>
             </div>
             <h3 class="text-2xl font-semibold mb-3">2. IA Categoriza</h3>
-            <p class="text-on-surface-variant">Nossa inteligencia entende o gasto, categoriza e atualiza seu orcamento instantaneamente.</p>
+            <p class="text-on-surface-variant">Nossa inteligência entende o gasto, categoriza e atualiza seu orçamento instantaneamente.</p>
           </div>
 
           <div class="flex flex-col items-center text-center">
@@ -172,7 +163,7 @@ const toggleFaq = (index: number) => {
               <span class="material-symbols-outlined text-4xl">query_stats</span>
             </div>
             <h3 class="text-2xl font-semibold mb-3">3. Receba Insights</h3>
-            <p class="text-on-surface-variant">Acompanhe limites mensais e receba conselhos do Doutor Equilibrio para economizar.</p>
+            <p class="text-on-surface-variant">Acompanhe limites mensais e receba conselhos do Doutor Equilíbrio para economizar.</p>
           </div>
         </div>
       </section>
@@ -181,7 +172,7 @@ const toggleFaq = (index: number) => {
       <section class="py-24 bg-surface-container-low/50" id="beneficios">
         <div class="max-w-[1280px] mx-auto px-4 md:px-6">
           <div class="text-center mb-16">
-            <h2 class="text-[40px] font-bold">Tudo que voce precisa</h2>
+            <h2 class="text-[40px] font-bold">Tudo que você precisa</h2>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -189,8 +180,8 @@ const toggleFaq = (index: number) => {
             <div class="md:col-span-8 bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/30 flex flex-col md:flex-row gap-8 items-center">
               <div class="flex-1">
                 <span class="material-symbols-outlined text-zapgrana-green mb-4 text-4xl">mic</span>
-                <h3 class="text-2xl font-semibold mb-2">Entrada por Audio</h3>
-                <p class="text-on-surface-variant">Nao quer digitar? Mande um audio de 2 segundos. Nossa IA transcreve e registra o valor e o local do gasto automaticamente.</p>
+                <h3 class="text-2xl font-semibold mb-2">Entrada por Áudio</h3>
+                <p class="text-on-surface-variant">Não quer digitar? Mande um áudio de 2 segundos. Nossa IA transcreve e registra o valor e o local do gasto automaticamente.</p>
               </div>
               <div class="flex-1 w-full bg-surface-container rounded-2xl p-6">
                 <div class="bg-white p-3 rounded-xl mb-3 shadow-sm border border-outline-variant/20 flex items-center gap-3">
@@ -200,14 +191,14 @@ const toggleFaq = (index: number) => {
                   </div>
                   <span class="text-xs font-mono">0:03</span>
                 </div>
-                <div class="text-xs text-on-surface-variant italic">"Acabei de pagar o almoco, deu 35 reais no cartao."</div>
+                <div class="text-xs text-on-surface-variant italic">"Acabei de pagar o almoço, deu 35 reais no cartão."</div>
               </div>
             </div>
 
             <!-- Relatorios -->
             <div class="md:col-span-4 bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/30 flex flex-col">
               <span class="material-symbols-outlined text-zapgrana-green mb-4 text-4xl">analytics</span>
-              <h3 class="text-2xl font-semibold mb-2">Relatorios</h3>
+              <h3 class="text-2xl font-semibold mb-2">Relatórios</h3>
               <p class="text-on-surface-variant mb-6">Receba PDFs semanais e mensais detalhados direto no seu celular.</p>
               <div class="mt-auto pt-4 border-t border-outline-variant/20">
                 <div class="flex justify-between items-center text-sm font-bold text-zapgrana-green">
@@ -221,7 +212,7 @@ const toggleFaq = (index: number) => {
             <div class="md:col-span-4 bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/30">
               <span class="material-symbols-outlined text-zapgrana-green mb-4 text-4xl">calendar_month</span>
               <h3 class="text-2xl font-semibold mb-2">Parcelas Inteligentes</h3>
-              <p class="text-on-surface-variant">Lancou um gasto parcelado? O Zapgrana cuida de projetar as parcelas nos meses seguintes.</p>
+              <p class="text-on-surface-variant">Lançou um gasto parcelado? O Zapgrana cuida de projetar as parcelas nos meses seguintes.</p>
             </div>
 
             <!-- Foto -->
@@ -235,20 +226,20 @@ const toggleFaq = (index: number) => {
             <div class="md:col-span-4 bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/30">
               <span class="material-symbols-outlined text-zapgrana-green mb-4 text-4xl">notifications_active</span>
               <h3 class="text-2xl font-semibold mb-2">Alertas de Limite</h3>
-              <p class="text-on-surface-variant">Defina metas para lazer, alimentacao e moradia. Avisamos quando estiver chegando no limite.</p>
+              <p class="text-on-surface-variant">Defina metas para lazer, alimentação e moradia. Avisamos quando estiver chegando no limite.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Doutor Equilibrio Section -->
+      <!-- Doutor Equilíbrio Section -->
       <section class="py-24 px-4 md:px-6 max-w-[1280px] mx-auto">
         <div class="bg-primary p-8 md:p-16 rounded-[40px] text-on-primary flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
           <div class="absolute top-0 right-0 w-96 h-96 bg-zapgrana-green rounded-full blur-[120px] -z-0 opacity-50"></div>
 
           <div class="relative z-10 w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
             <img
-              alt="Doutor Equilibrio Portrait"
+              alt="Doutor Equilíbrio Portrait"
               class="w-full h-full object-cover rounded-full border-4 border-growth-light"
               src="/images/dr-equilibrio.jpg"
             >
@@ -256,12 +247,12 @@ const toggleFaq = (index: number) => {
 
           <div class="relative z-10">
             <span class="text-growth-light font-bold text-sm uppercase mb-4 block">Parceria Exclusiva</span>
-            <h2 class="text-[40px] font-bold leading-tight mb-6">Mentoria Financeira com o Doutor Equilibrio</h2>
+            <h2 class="text-[40px] font-bold leading-tight mb-6">Mentoria Financeira com o Doutor Equilíbrio</h2>
             <blockquote class="text-lg text-on-primary-container italic mb-8 leading-relaxed">
-              "Minha missao e democratizar a educacao financeira. Com o Zapgrana, levamos a inteligencia que antes era restrita a bancos de investimento diretamente para a mao de qualquer brasileiro via WhatsApp."
+              "Minha missão é democratizar a educação financeira. Com o Zapgrana, levamos a inteligência que antes era restrita a bancos de investimento diretamente para a mão de qualquer brasileiro via WhatsApp."
             </blockquote>
-            <p class="font-bold text-lg">Doutor Equilibrio</p>
-            <p class="text-sm opacity-80">Mentor e Especialista em Financas Pessoais</p>
+            <p class="font-bold text-lg">Doutor Equilíbrio</p>
+            <p class="text-sm opacity-80">Mentor e Especialista em Finanças Pessoais</p>
           </div>
         </div>
       </section>
@@ -275,8 +266,8 @@ const toggleFaq = (index: number) => {
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <!-- Plano Gratis -->
           <div class="bg-white p-8 rounded-3xl border border-outline-variant/30 shadow-sm flex flex-col">
-            <h3 class="text-2xl font-semibold mb-2">Basico</h3>
-            <p class="text-on-surface-variant text-sm mb-6">Para quem esta comecando a se organizar.</p>
+            <h3 class="text-2xl font-semibold mb-2">Básico</h3>
+            <p class="text-on-surface-variant text-sm mb-6">Para quem está começando a se organizar.</p>
             <div class="mb-8">
               <span class="text-4xl font-bold">R$ 0</span>
               <span class="text-on-surface-variant">/mes</span>
@@ -284,22 +275,22 @@ const toggleFaq = (index: number) => {
             <ul class="space-y-4 mb-10 flex-1">
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-zapgrana-green" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span>7 dias gratis</span>
+                <span>7 dias grátis</span>
               </li>
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-zapgrana-green" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span>Categorizacao automatica</span>
+                <span>Categorização automática</span>
               </li>
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-zapgrana-green" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span>Relatorio mensal simples</span>
+                <span>Relatório mensal simples</span>
               </li>
             </ul>
             <button
               @click="goToSignup"
               class="w-full py-3 rounded-xl border-2 border-zapgrana-green text-zapgrana-green font-bold hover:bg-surface-container-low transition-colors"
             >
-              Comecar Agora
+              Começar Agora
             </button>
           </div>
 
@@ -319,11 +310,11 @@ const toggleFaq = (index: number) => {
               </li>
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-zapgrana-green" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span>Entrada por audio e foto</span>
+                <span>Entrada por áudio e foto</span>
               </li>
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-zapgrana-green" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span>Gestao de parcelamentos</span>
+                <span>Gestão de parcelamentos</span>
               </li>
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-zapgrana-green" style="font-variation-settings: 'FILL' 1;">check_circle</span>
@@ -342,7 +333,7 @@ const toggleFaq = (index: number) => {
 
       <!-- FAQ Section -->
       <section class="py-24 px-4 md:px-6 max-w-3xl mx-auto">
-        <h2 class="text-[40px] font-bold text-center mb-12">Duvidas Frequentes</h2>
+        <h2 class="text-[40px] font-bold text-center mb-12">Dúvidas Frequentes</h2>
 
         <div class="space-y-4">
           <details
@@ -367,15 +358,15 @@ const toggleFaq = (index: number) => {
         <div class="max-w-[1280px] mx-auto bg-gradient-to-br from-zapgrana-green to-primary p-12 md:p-24 rounded-[40px] text-center text-on-primary">
           <h2 class="text-[40px] font-bold mb-6">Pronto para transformar sua vida financeira?</h2>
           <p class="text-lg mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">
-            Junte-se a mais de 38 mil pessoas que ja estao gastando menos e guardando mais com a ajuda do Doutor Equilibrio.
+            Junte-se a mais de 38 mil pessoas que já estão gastando menos e guardando mais com a ajuda do Doutor Equilíbrio.
           </p>
           <button
             @click="goToSignup"
             class="bg-white text-zapgrana-green px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl hover:scale-105 transition-transform active:scale-95"
           >
-            Quero comecar agora mesmo!
+            Quero começar agora mesmo!
           </button>
-          <p class="mt-6 text-sm opacity-70">Teste gratis por 7 dias no Plano Pro</p>
+          <p class="mt-6 text-sm opacity-70">Teste grátis por 7 dias no Plano Pro</p>
         </div>
       </section>
     </main>
@@ -384,15 +375,15 @@ const toggleFaq = (index: number) => {
     <footer class="w-full py-24 mt-auto bg-surface-container-highest border-t border-outline-variant">
       <div class="max-w-[1280px] mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="md:col-span-1">
-          <img src="/images/logo-icon.png" alt="Zapgrana Logo" class="object-contain">
-          <p class="mt-4 text-on-surface-variant">Gestao financeira inteligente</p>
+          <img src="/images/logo-icon-1.png" alt="Zapgrana Logo" class="object-contain">
+          <p class="mt-4 text-on-surface-variant">Gestão financeira inteligente</p>
         </div>
 
         <div>
           <h4 class="font-bold mb-6">Plataforma</h4>
           <ul class="space-y-4">
             <li><a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#como-funciona">Como Funciona</a></li>
-            <li><a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#precos">Planos e Precos</a></li>
+            <li><a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#precos">Planos e Preços</a></li>
             <li><a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#">FAQ</a></li>
           </ul>
         </div>
@@ -402,7 +393,7 @@ const toggleFaq = (index: number) => {
           <ul class="space-y-4">
             <li><a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#">Termos de Uso</a></li>
             <li><a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#">Privacidade</a></li>
-            <li><a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#">Seguranca</a></li>
+            <li><a class="text-on-surface-variant hover:text-zapgrana-green transition-colors" href="#">Segurança</a></li>
           </ul>
         </div>
 

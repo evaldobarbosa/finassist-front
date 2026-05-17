@@ -81,6 +81,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/settings/SettingsPage.vue'),
     meta: { layout: 'app', requiresAuth: true }
   },
+  {
+    path: '/recurrences',
+    name: 'recurrences',
+    component: () => import('@/pages/recurrences/RecurrencesPage.vue'),
+    meta: { layout: 'app', requiresAuth: true }
+  },
 
   // Catch all - redirect to app if authenticated, landing otherwise
   {
@@ -96,7 +102,17 @@ const router = createRouter({
 
 // Navigation guard
 router.beforeEach((to, _from, next) => {
-  const isAuthenticated = localStorage.getItem('auth_token')
+  // Check auth from the same storage key used by auth store
+  let isAuthenticated = false
+  try {
+    const authData = localStorage.getItem('finassistant_auth')
+    if (authData) {
+      const parsed = JSON.parse(authData)
+      isAuthenticated = !!parsed.token
+    }
+  } catch {
+    isAuthenticated = false
+  }
 
   if (to.meta.requiresAuth && !isAuthenticated) {
     next({ name: 'login' })

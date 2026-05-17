@@ -75,9 +75,10 @@
   --color-whatsapp-green: #25D366;
 
   /* Typography */
-  --font-family-headline: "Inter", sans-serif;
-  --font-family-body: "Inter", sans-serif;
-  --font-family-label: "Inter", sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-family-headline: "Poppins", sans-serif;
+  --font-family-body: "Poppins", sans-serif;
+  --font-family-label: "Poppins", sans-serif;
 
   /* Border Radius */
   --radius-sm: 0.25rem;

@@ -122,12 +122,6 @@ const logout = () => {
       </div>
     </main>
 
-    <!-- FAB -->
-    <div class="fixed bottom-8 right-8 z-50">
-      <button class="w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-all duration-200">
-        <span class="material-symbols-outlined text-3xl">add</span>
-      </button>
-    </div>
   </div>
 </template>
 
