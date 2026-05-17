@@ -48,15 +48,13 @@ const handleSubmit = async () => {
 
 <template>
   <div class="space-y-10">
-    <!-- Logo -->
-    <div>
-      <img src="/images/logo-icon.png" alt="Zapgrana" class="object-contain">
-    </div>
-
-    <!-- Header -->
-    <div class="space-y-2">
-      <h1 class="text-3xl font-bold text-on-surface tracking-tight">Bem-vindo de volta</h1>
-      <p class="text-on-surface-variant text-sm">Acesse sua conta para gerenciar suas finanças.</p>
+    <!-- Logo + Header -->
+    <div class="space-y-3">
+      <img src="/images/logo-icon-1.png" alt="Zapgrana" class="object-contain">
+      <div class="space-y-2">
+        <h1 class="text-3xl font-bold text-on-surface tracking-tight">Bem-vindo de volta</h1>
+        <p class="text-on-surface-variant text-sm">Acesse sua conta para gerenciar suas finanças.</p>
+      </div>
     </div>
 
     <!-- Google Login -->
