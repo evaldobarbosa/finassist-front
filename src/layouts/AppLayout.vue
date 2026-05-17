@@ -53,14 +53,8 @@ const logout = () => {
       ]"
     >
       <!-- Logo -->
-      <div class="px-6 mb-8 flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
-        </div>
-        <div>
-          <h1 class="text-lg font-bold text-primary leading-none">FinAssistant</h1>
-          <p class="text-[0.6875rem] font-medium text-slate-400 mt-1 uppercase tracking-wider">Gestão Financeira</p>
-        </div>
+      <div class="px-6 mb-8">
+        <img src="/images/logo-icon.png" alt="Zapgrana" class="object-contain">
       </div>
 
       <!-- Navigation -->

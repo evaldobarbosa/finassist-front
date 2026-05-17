@@ -49,9 +49,8 @@ const handleSubmit = async () => {
 <template>
   <div class="space-y-10">
     <!-- Logo -->
-    <div class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
-      <span class="text-xl font-bold tracking-tight text-primary">FinAssistant</span>
+    <div>
+      <img src="/images/logo-icon.png" alt="Zapgrana" class="object-contain">
     </div>
 
     <!-- Header -->
