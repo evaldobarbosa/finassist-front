@@ -54,7 +54,7 @@ const logout = () => {
     >
       <!-- Logo -->
       <div class="px-6 mb-8">
-        <img src="/images/logo-icon.png" alt="Zapgrana" class="object-contain">
+        <img src="/images/logo-icon-1.png" alt="Zapgrana" class="object-contain">
       </div>
 
       <!-- Navigation -->
